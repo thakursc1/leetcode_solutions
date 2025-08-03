@@ -1,4 +1,4 @@
-# Last updated: 03/08/2025, 09:11:10
+# Last updated: 03/08/2025, 09:19:33
 # """
 # This is ArrayReader's API interface.
 # You should not implement it, or speculate about its implementation
@@ -10,10 +10,16 @@ class Solution:
     def search(self, reader: 'ArrayReader', target: int) -> int:
 
         left = 0 
-        right = 10001
+        right = 1
 
+
+        while reader.get(right) < target:
+            left = right 
+            right = right*2
+        
+    
         INT_MAX = 2**31 - 1 
-
+        right+=1
         while left < right:
 
             mid = left + (right - left)//2
